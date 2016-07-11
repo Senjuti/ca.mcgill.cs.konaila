@@ -1,0 +1,113 @@
+<html>
+<head>
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css">
+<style>
+p {
+	font: 16px arial, sans-serif;
+}
+
+td {
+	padding: 5px;
+}
+
+table {
+	border: 1;
+}
+
+#sortable1,#sortable2 {
+	background-color: #eee;
+	border: 1px solid black;
+	width: 600px; <!-- 142 px; -->
+	min-height: 20px;
+	list-style-type: none;
+	margin: 0;
+	padding: 5px 0 0 0;
+	float: left;
+	margin-right: 10px;
+}
+
+#sortable1 li,#sortable2 li {
+	margin: 0 5px 5px 5px;
+	padding: 5px;
+	font-size: 0.5em <!-- 1.2em; -->
+	width: 120px;
+}
+</style>
+<script>
+	$(function() {
+		$("#sortable1, #sortable2").sortable({
+			connectWith : ".connectedSortable"
+		}).disableSelection();
+	});
+</script>
+<script
+	src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+<script type="text/javascript">
+	function showValue(newValue) {
+		document.getElementById("range").innerHTML = newValue;
+	}
+</script>
+
+</head>
+
+<body>
+	<form method="get" action="LoadPredictionBased">
+
+		<input name="cid" type="hidden" value="***CID***" /> 
+
+		<table>		
+		
+			<tr>
+				<td><p>Query: ***QUERY***</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<p>Code Fragment:
+					<pre class="prettyprint">
+***public class Original {}***
+</pre>
+				</td>
+			</tr>
+
+			<tr>
+				<td><p>Here are three shortened versions of the code fragment.
+					<ul id="sortable1" class="connectedSortable">
+						<li><pre class="prettyprint">
+***public class Summary {}***
+</pre></li>
+						<li><pre class="prettyprint">
+...
+Random
+...
+</pre></li>
+						<li><pre class="prettyprint">
+...
+Baseline
+...
+</pre></li>
+					</ul></td>
+			</tr>
+			
+			<tr>
+				<td>
+					<br><p>Drag above shortened versions to the following box,
+					in the order of effectiveness for
+						replacing the textual summaries in a search engine.
+					<ul id="sortable2" class="connectedSortable">
+						<!-- <li class="ui-state-highlight">Item 1</li> -->					
+						<br>
+					</ul>
+				</td>
+			</tr>
+			
+		</table>
+	</form>
+	
+	<p><a href="***NEXT LINK***" >Next code fragment (Query: ***NEXT QUERY***)</a>
+</body>
+</html>

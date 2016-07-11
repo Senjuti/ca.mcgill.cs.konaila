@@ -1,0 +1,107 @@
+<html>
+<body>
+<br>
+<style>
+input[type=range]{
+    /* fix for FF unable to apply focus style bug  */
+    border: 1px solid white; 
+
+    /*required for proper track sizing in FF*/
+    width: 300px;
+}
+
+input[type=range]::-moz-range-track {
+    width: 300px;
+    height: 5px;
+    background: #ddd;
+    border: none;
+    border-radius: 3px;
+}
+
+input[type=range]::-moz-range-thumb {
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: goldenrod;
+}
+
+/*hide the outline behind the border*/
+input[type=range]:-moz-focusring{
+    outline: 1px solid white;
+    outline-offset: -1px;
+}
+
+input[type=range]:focus::-moz-range-track {
+    background: #ccc;
+}
+
+body {
+    font: 12px arial, sans-serif;
+} 
+
+td {
+    padding: 10px;
+}
+</style>
+
+<h1>Study on Source Code Summarization</h1>
+
+<table width="400">
+
+<tr><td>
+<p>Many documents we need to understand and use software technologies include code examples. In fact, code examples are often what people are looking for. To decide whether to study a code example in detail, it's useful to have a summary of what it's about, just like for any other document. But most techniques for summarizing "normal" documents don't apply to code. This problem pops up everywhere one looks for code on the Internet. To illustrate the point, let's try to find code that shows how to <b>read the properties in a Hibernate configuration file.</b>
+
+<p>Using Stack Overflow to find code examples, the result folds the code snippets into the text when displaying search results, and provides no summarization when viewing the content of the posts:
+</td></tr>
+
+<tr><td>
+<img src="http://annieying.ca/SummarizationStudy/instructions/pictures/stackoverflow-snippet.png" alt="Stack Overflow snippet" style="width:600px">
+</td></tr>
+
+<tr><td>
+<p>We designed an algorithm that generates a summary, a smaller version of the code. We would like your help to evaluate the algorithm by taking this survey consisting of rating sets of summaries.
+
+<p>This is how the survey works.
+
+<p>Before presenting each set of summaries, we first show you a question from Stack Overflow and a code snippet extracted from an answer:
+</td></tr>
+
+<tr><td>
+<img src="http://annieying.ca/SummarizationStudy/instructions/pictures/question.png" alt="Original snippet with question from a Stack Overflow answer" style="width:500px">
+</td></tr>
+
+<tr><td>
+We then present you with three summaries generated from three versions of our algorithm:
+</td></tr>
+
+<tr><td>
+<img src="http://annieying.ca/SummarizationStudy/instructions/pictures/summaries.png" alt="Summaries" style="width:1000px">
+</td></tr>
+
+<tr><td>
+<p>We ask you to rate each of the summaries according to the following statement:
+
+<p>
+<b>Given the limited space, this summary captures as much as possible of 
+the original elements of the code related to the Stack Overflow 
+question, while remaining readable.</b>
+
+<p>
+For each code fragment, we randomize the  placement order (left, middle, right) of the three versions of the algorithm.
+
+<p>When two or more summaries are the same, just provide the same rating for them.
+</td></tr>
+
+<tr><td>
+<form action="FirstSurveyQuestion" method="POST">
+<input type="hidden" name="user" value="***user***">
+<input type="hidden" name="size" value="***size***">
+<input type="hidden" name="taskNumber" value="***taskNumber***">
+<input type="submit" value="Start" /> 
+</form>
+</td></tr>
+</table>
+
+</body>
+</html>

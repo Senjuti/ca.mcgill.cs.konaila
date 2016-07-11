@@ -1,0 +1,165 @@
+<html>
+<body>
+<style>
+input[type=range]{
+    /* fix for FF unable to apply focus style bug  */
+    border: 1px solid white; 
+
+    /*required for proper track sizing in FF*/
+    width: 300px;
+}
+
+input[type=range]::-moz-range-track {
+    width: 300px;
+    height: 5px;
+    background: #ddd;
+    border: none;
+    border-radius: 3px;
+}
+
+input[type=range]::-moz-range-thumb {
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: goldenrod;
+}
+
+/*hide the outline behind the border*/
+input[type=range]:-moz-focusring{
+    outline: 1px solid white;
+    outline-offset: -1px;
+}
+
+input[type=range]:focus::-moz-range-track {
+    background: #ccc;
+}
+
+body {
+    font: 12px arial, sans-serif;
+} 
+
+td {
+    padding: 20px;
+}
+
+
+</style>
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+<script src="jquery.js"></script>
+<script type="text/javascript">
+
+// http://stackoverflow.com/questions/1423777/javascript-how-can-i-check-whether-a-radio-button-is-selected
+function RadioValidator()
+{
+    var ShowAlert = '';
+    var AllFormElements = window.document.getElementById("FormID").elements;
+    for (i = 0; i < AllFormElements.length; i++) {
+        if (AllFormElements[i].type == 'radio') {
+            var ThisRadio = AllFormElements[i].name;
+            var ThisChecked = 'No';
+            var AllRadioOptions = document.getElementsByName(ThisRadio);
+            for (x = 0; x < AllRadioOptions.length; x++) {
+                 if (AllRadioOptions[x].checked && ThisChecked == 'No') {
+                     ThisChecked = 'Yes';
+                     break;
+                 } 
+            }   
+            var AlreadySearched = ShowAlert.indexOf(ThisRadio);
+            if (ThisChecked == 'No' && AlreadySearched == -1) {
+            	ShowAlert = ShowAlert + 'Please select an answer for ' + ThisRadio + '.\n';
+            }     
+        }
+    }
+    if (ShowAlert != '') {
+    	alert(ShowAlert);
+    	return false;
+    } else {
+    	return true;
+    }
+}
+</script>
+
+<h2>Task ***taskNumber*** of 52</h2>
+
+<form id="FormID" action="SurveyQuestion" method="POST">
+	<input type="hidden" name="user" value="***user***"/>
+	<input type="hidden" name="taskNumber" value="***taskNumber***"/>	
+
+
+	<table>
+		<tr><th>Stack Overflow Question: ***QUERY***</th></tr>			 
+		<tr>
+			<td>
+			<pre class="prettyprint">
+***public class Original {}***</pre>		
+			</td>
+		</tr>
+	</table>
+
+	<table style="table-layout:fixed;width:1300px;border:1px;">
+		<col style="width: 33%">
+		<col style="width: 33%">		
+		<col style="width: 33%">
+		
+  		<tr>
+			<th>Summary 1</th>
+    		<th>Summary 2</th>
+    		<th>Summary 3</th>
+		</tr>	
+				
+		<tr>
+			<td>
+			<pre class="prettyprint">
+***public class Summary1 {}***</pre>
+			</td>
+		
+			<td><pre class="prettyprint">
+***public class Summary2 {}***</pre>
+			</td>
+								
+			<td><pre class="prettyprint">
+***public class Summary3 {}***</pre>
+			</td>
+		</tr>
+	
+ 		<tr>
+<!-- 			<td align="center" colspan="3"/>This summary captures as many of the aspects of the original code as possible related to the query given the space.</td>
+-->
+			<td>Given the limited space, this summary captures as much as possible of the original elements of the code related to the Stack Overflow question, while remaining readable.</td>
+			<td>Given the limited space, this summary captures as much as possible of the original elements of the code related to the Stack Overflow question, while remaining readable.</td>
+			<td>Given the limited space, this summary captures as much as possible of the original elements of the code related to the Stack Overflow question, while remaining readable.</td>
+			
+		</tr>
+		
+		<tr>
+			<td>			
+				<input type="radio" name="Summary 1" value="CompletelyAgree">Completely agree<br>
+				<input type="radio" name="Summary 1" value="GenerallyAgree">Generally agree<br>
+				<input type="radio" name="Summary 1" value="GenerallyDisagree">Generally disagree<br>
+				<input type="radio" name="Summary 1" value="CompletelyDisagree">Completely disagree<br>
+			</td>
+		
+			<td>
+				<input type="radio" name="Summary 2" value="CompletelyAgree">Completely agree<br>
+				<input type="radio" name="Summary 2" value="GenerallyAgree">Generally agree<br>
+				<input type="radio" name="Summary 2" value="GenerallyDisagree">Generally disagree<br>
+				<input type="radio" name="Summary 2" value="CompletelyDisagree">Completely disagree<br>
+			</td>	
+		
+	 		<td>
+				<input type="radio" name="Summary 3" value="CompletelyAgree">Completely agree<br>
+				<input type="radio" name="Summary 3" value="GenerallyAgree">Generally agree<br>
+				<input type="radio" name="Summary 3" value="GenerallyDisagree">Generally disagree<br>
+				<input type="radio" name="Summary 3" value="CompletelyDisagree">Completely disagree<br>
+			</td>
+		</tr>
+		
+	</table>
+
+	
+<input type="submit" value="Save Ratings and Next" onclick="return RadioValidator();"></input> 
+</form>
+
+</body>
+</html>
