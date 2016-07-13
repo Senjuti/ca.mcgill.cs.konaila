@@ -2,9 +2,9 @@
 
 The project is an Eclipse Maven project.  Here's the steps I would use to check out the code:
 
-* `git clone git@github.com:annieying/ca.mcgill.cs.konaila.git`
-* In Eclipse, import `ca.mcgill.cs.konaila` as an Eclipse project
-* Once the code is imported, the project is built using Maven which also downloads a number of libraries to your local machine.
+* `git clone https://github.com/annieying/ca.mcgill.cs.konaila.git`
+* In Eclipse, go to File -> Import -> Existing Projects into Workspace -> Select `ca.mcgill.cs.konaila` as Root Directory -> Finish
+* Once the code is imported, right click the project and select Build. The project is built using Maven which also downloads a number of libraries to your local machine.
 
 
 # Parser
