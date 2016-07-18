@@ -19,4 +19,4 @@ The entry point of the code is in `./src/main/java/ca/mcgill/cs/konaila/chopper/
 
 Use Eclipse Launch Configuration named `SurveyServer.launch` in the `./launch-configs` folder, by right click that launch file and select `Run`.
 
-Go to your broswer at: `http://localhost/DevelopmentSetServer`
+Go to your broswer at: `http://localhost:8848/DevelopmentSetServer`
